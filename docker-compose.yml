@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  freellmapi:
+    image: freellmapi:latest
+    container_name: freellmapi
+    ports:
+      - "8000:8000"
+    environment:
+      - LLM_PROVIDER=openai
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  # Servicio opcional para Astra DB local testing
+  astra-mock:
+    image: redis:7-alpine
+    container_name: astra-mock
+    ports:
+      - "6379:6379"
+    restart: unless-stopped

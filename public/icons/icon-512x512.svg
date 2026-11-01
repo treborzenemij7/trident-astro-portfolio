@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#09090b"/>
+  <!-- Trident Shaft -->
+  <rect x="235" y="92" width="42" height="294" fill="#3b82f6"/>
+  <!-- Prongs -->
+  <rect x="193" y="15" width="27" height="77" fill="#3b82f6"/>
+  <rect x="242" y="15" width="27" height="77" fill="#3b82f6"/>
+  <rect x="293" y="15" width="27" height="77" fill="#3b82f6"/>
+</svg>
