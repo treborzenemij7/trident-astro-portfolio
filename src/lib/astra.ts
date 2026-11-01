@@ -26,8 +26,8 @@ class AstraDBClient {
   private collection: any;
 
   constructor() {
-    const token = import.meta.env.ASTRA_DB_APPLICATION_TOKEN || process.env.ASTRA_DB_APPLICATION_TOKEN || '';
-    const endpoint = import.meta.env.ASTRA_DB_REST_URL || process.env.ASTRA_DB_REST_URL || '';
+    const token = import.meta.env.PUBLIC_ASTRA_DB_APPLICATION_TOKEN || import.meta.env.ASTRA_DB_APPLICATION_TOKEN || process.env.ASTRA_DB_APPLICATION_TOKEN || process.env.PUBLIC_ASTRA_DB_APPLICATION_TOKEN || '';
+    const endpoint = import.meta.env.PUBLIC_ASTRA_DB_REST_URL || import.meta.env.ASTRA_DB_REST_URL || process.env.ASTRA_DB_REST_URL || process.env.PUBLIC_ASTRA_DB_REST_URL || '';
 
     if (!token || !endpoint) {
       // Skip validation for build/preview
@@ -40,6 +40,9 @@ class AstraDBClient {
       this.collection = null as any;
       return;
     }
+
+    // Log for debugging
+    console.log('Astra DB configurado, token presente:', !!token, 'endpoint:', endpoint ? 'sí' : 'no');
 
     this.client = new DataAPIClient(token);
     this.db = this.client.db(endpoint);
